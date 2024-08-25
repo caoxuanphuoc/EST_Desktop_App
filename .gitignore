@@ -20,6 +20,7 @@
 /ESTDesktop.AppForm/obj/
 /ESTDesktop.AppForm/bin/
 
-/ESTDesktop.Form/obj/
-/ESTDesktop.Form/bin/
-/ESTDesktop.AppView/obj/Debug/net8.0-windows/ref/ESTDesktop.AppView.dll
+
+/ESTDesktop.AppView/obj/
+/ESTDesktop.AppView/bin/
+
