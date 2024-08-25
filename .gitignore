@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ESTDesktop/.vs
+/.vs
+/ESTDesktop/ESTDesktop.Web.Host/obj/
+/ESTDesktop/ESTDesktop.Web.Host/bin/
+
+/ESTDesktop/ESTDesktop.EntityFrameworkCore/obj/
+/ESTDesktop/ESTDesktop.EntityFrameworkCore/bin/
+
+/ESTDesktop/ESTDesktop.Core/obj/
+/ESTDesktop/ESTDesktop.Core/bin/
+
+/ESTDesktop/ESTDesktop.Service/obj/
+/ESTDesktop/ESTDesktop.Service/bin/
+
+/ESTDesktop/ESTDesktop.AppForm/obj/
+/ESTDesktop/ESTDesktop.AppForm/bin/
