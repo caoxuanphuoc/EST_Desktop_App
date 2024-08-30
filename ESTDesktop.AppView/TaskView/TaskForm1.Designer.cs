@@ -84,6 +84,7 @@
             // tbMaxTime
             // 
             tbMaxTime.Location = new Point(332, 178);
+            tbMaxTime.Maximum = new decimal(new int[] { 40000, 0, 0, 0 });
             tbMaxTime.Name = "tbMaxTime";
             tbMaxTime.Size = new Size(52, 23);
             tbMaxTime.TabIndex = 4;
@@ -100,6 +101,7 @@
             // tbMinTime
             // 
             tbMinTime.Location = new Point(100, 178);
+            tbMinTime.Maximum = new decimal(new int[] { 40000, 0, 0, 0 });
             tbMinTime.Name = "tbMinTime";
             tbMinTime.Size = new Size(52, 23);
             tbMinTime.TabIndex = 2;
@@ -116,6 +118,7 @@
             // tbEst
             // 
             tbEst.Location = new Point(210, 178);
+            tbEst.Maximum = new decimal(new int[] { 40000, 0, 0, 0 });
             tbEst.Name = "tbEst";
             tbEst.Size = new Size(52, 23);
             tbEst.TabIndex = 3;
@@ -128,7 +131,7 @@
             btAddTask.Size = new Size(247, 23);
             btAddTask.TabIndex = 5;
             btAddTask.TabStop = false;
-            btAddTask.Text = "Add Now";
+            btAddTask.Text = "Add Task";
             btAddTask.UseVisualStyleBackColor = true;
             btAddTask.Click += btAddTask_Click;
             // 
@@ -334,6 +337,7 @@
             Controls.Add(label6);
             Controls.Add(panel3);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "TaskForm1";
             Text = "EST Desktop";
             Load += TaskForm1_Load;

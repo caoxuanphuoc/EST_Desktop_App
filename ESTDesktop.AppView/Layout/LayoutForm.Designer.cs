@@ -28,22 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ucInputForm1 = new Component.Form.ucInputForm();
+            button1 = new Button();
+            pnContent = new Panel();
             SuspendLayout();
             // 
-            // ucInputForm1
+            // button1
             // 
-            ucInputForm1.Location = new Point(28, 29);
-            ucInputForm1.Name = "ucInputForm1";
-            ucInputForm1.Size = new Size(194, 55);
-            ucInputForm1.TabIndex = 0;
+            button1.Location = new Point(31, 13);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "show Taskform";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // pnContent
+            // 
+            pnContent.Location = new Point(30, 62);
+            pnContent.Name = "pnContent";
+            pnContent.Size = new Size(1019, 504);
+            pnContent.TabIndex = 1;
             // 
             // LayoutForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(ucInputForm1);
+            ClientSize = new Size(1082, 600);
+            Controls.Add(pnContent);
+            Controls.Add(button1);
             Name = "LayoutForm";
             Text = "LayoutForm";
             Load += LayoutForm_Load;
@@ -52,6 +64,7 @@
 
         #endregion
 
-        private Component.Form.ucInputForm ucInputForm1;
+        private Button button1;
+        private Panel pnContent;
     }
 }

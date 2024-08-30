@@ -83,6 +83,7 @@ namespace ESTDesktop.AppView.TaskView
         private void UserControl_EditControlClicked(object sender, EventArgs e)
         {
             // Khi sự kiện được kích hoạt, xóa UserControl khỏi FlowLayoutPanel và danh sách
+            btAddTask.Text = "Save change";
             UcTaskList userControl = sender as UcTaskList;
             if (userControl != null)
             {
@@ -98,10 +99,17 @@ namespace ESTDesktop.AppView.TaskView
         }
         private void btAddTask_Click(object sender, EventArgs e)
         {
+            string taskName = tbTaskName.Text;
+            string description = rtbDescripttion.Text;
+
+            if ( string.IsNullOrEmpty(taskName) && string.IsNullOrEmpty(description))
+            {
+                return;
+            }
+
             TotalMin += string.IsNullOrEmpty(tbMinTime.Text) ? 0 : float.Parse(tbMinTime.Text);
             TotalMax += string.IsNullOrEmpty(tbMaxTime.Text) ? 0 : float.Parse(tbMaxTime.Text);
             TotalOP += string.IsNullOrEmpty(tbEst.Text) ? 0 : float.Parse(tbEst.Text);
-
             if (IdEdit != -1)
             {
                 lsTask[IdEdit].TaskName = tbTaskName.Text;
@@ -110,7 +118,7 @@ namespace ESTDesktop.AppView.TaskView
                 lsTask[IdEdit].MaxTime = string.IsNullOrEmpty(tbMaxTime.Text) ? 0 : float.Parse(tbMaxTime.Text);
                 lsTask[IdEdit].MinTime = string.IsNullOrEmpty(tbMinTime.Text) ? 0 : float.Parse(tbMinTime.Text);
                 IdEdit = -1;
-
+                btAddTask.Text = "Add Task";
             }
             else
             {
