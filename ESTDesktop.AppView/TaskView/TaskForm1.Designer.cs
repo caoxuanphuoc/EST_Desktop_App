@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
-            tbMaxTime = new TextBox();
+            tbMaxTime = new NumericUpDown();
             label5 = new Label();
-            tbMinTime = new TextBox();
+            tbMinTime = new NumericUpDown();
             label4 = new Label();
-            tbEst = new TextBox();
+            tbEst = new NumericUpDown();
             btAddTask = new Button();
             label3 = new Label();
             label2 = new Label();
@@ -46,8 +46,20 @@
             lbEst = new Label();
             lbMin = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            label6 = new Label();
+            panel1 = new Panel();
+            label9 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label8 = new Label();
+            label7 = new Label();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tbMaxTime).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbMinTime).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbEst).BeginInit();
             panel3.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -64,14 +76,14 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(tbTaskName);
             panel2.Controls.Add(rtbDescripttion);
-            panel2.Location = new Point(358, 24);
+            panel2.Location = new Point(424, 49);
             panel2.Name = "panel2";
-            panel2.Size = new Size(391, 188);
+            panel2.Size = new Size(391, 259);
             panel2.TabIndex = 1;
             // 
             // tbMaxTime
             // 
-            tbMaxTime.Location = new Point(332, 110);
+            tbMaxTime.Location = new Point(332, 178);
             tbMaxTime.Name = "tbMaxTime";
             tbMaxTime.Size = new Size(52, 23);
             tbMaxTime.TabIndex = 4;
@@ -79,7 +91,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(301, 113);
+            label5.Location = new Point(301, 181);
             label5.Name = "label5";
             label5.Size = new Size(30, 15);
             label5.TabIndex = 9;
@@ -87,7 +99,7 @@
             // 
             // tbMinTime
             // 
-            tbMinTime.Location = new Point(100, 110);
+            tbMinTime.Location = new Point(100, 178);
             tbMinTime.Name = "tbMinTime";
             tbMinTime.Size = new Size(52, 23);
             tbMinTime.TabIndex = 2;
@@ -95,7 +107,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(69, 115);
+            label4.Location = new Point(69, 183);
             label4.Name = "label4";
             label4.Size = new Size(28, 15);
             label4.TabIndex = 7;
@@ -103,25 +115,27 @@
             // 
             // tbEst
             // 
-            tbEst.Location = new Point(210, 110);
+            tbEst.Location = new Point(210, 178);
             tbEst.Name = "tbEst";
             tbEst.Size = new Size(52, 23);
             tbEst.TabIndex = 3;
             // 
             // btAddTask
             // 
-            btAddTask.Location = new Point(116, 148);
+            btAddTask.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btAddTask.Location = new Point(114, 216);
             btAddTask.Name = "btAddTask";
             btAddTask.Size = new Size(247, 23);
             btAddTask.TabIndex = 5;
-            btAddTask.Text = "Thêm ngay";
+            btAddTask.TabStop = false;
+            btAddTask.Text = "Add Now";
             btAddTask.UseVisualStyleBackColor = true;
             btAddTask.Click += btAddTask_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(179, 115);
+            label3.Location = new Point(179, 183);
             label3.Name = "label3";
             label3.Size = new Size(25, 15);
             label3.TabIndex = 4;
@@ -156,7 +170,7 @@
             // 
             rtbDescripttion.Location = new Point(67, 51);
             rtbDescripttion.Name = "rtbDescripttion";
-            rtbDescripttion.Size = new Size(317, 47);
+            rtbDescripttion.Size = new Size(317, 107);
             rtbDescripttion.TabIndex = 1;
             rtbDescripttion.Text = "";
             rtbDescripttion.TextChanged += rtbDescripttion_TextChanged;
@@ -168,9 +182,9 @@
             panel3.Controls.Add(lbM);
             panel3.Controls.Add(lbEst);
             panel3.Controls.Add(lbMin);
-            panel3.Location = new Point(358, 233);
+            panel3.Location = new Point(424, 323);
             panel3.Name = "panel3";
-            panel3.Size = new Size(391, 149);
+            panel3.Size = new Size(391, 119);
             panel3.TabIndex = 2;
             // 
             // lbOp
@@ -221,27 +235,119 @@
             // 
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = Color.DarkSeaGreen;
-            flowLayoutPanel1.Location = new Point(14, 23);
+            flowLayoutPanel1.Location = new Point(0, 36);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(338, 362);
+            flowLayoutPanel1.Size = new Size(394, 357);
             flowLayoutPanel1.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
+            label6.Location = new Point(286, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(249, 36);
+            label6.TabIndex = 4;
+            label6.Text = "EST PERT DESKTOP";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(flowLayoutPanel1);
+            panel1.Location = new Point(14, 49);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(394, 393);
+            panel1.TabIndex = 5;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold);
+            label9.Location = new Point(319, 8);
+            label9.Name = "label9";
+            label9.Size = new Size(62, 23);
+            label9.TabIndex = 6;
+            label9.Text = "Action";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold);
+            label12.Location = new Point(288, 8);
+            label12.Name = "label12";
+            label12.Size = new Size(26, 23);
+            label12.TabIndex = 9;
+            label12.Text = "M";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold);
+            label11.Location = new Point(251, 8);
+            label11.Name = "label11";
+            label11.Size = new Size(23, 23);
+            label11.TabIndex = 8;
+            label11.Text = "O";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold);
+            label10.Location = new Point(215, 8);
+            label10.Name = "label10";
+            label10.Size = new Size(20, 23);
+            label10.TabIndex = 7;
+            label10.Text = "P";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold);
+            label8.Location = new Point(81, 8);
+            label8.Name = "label8";
+            label8.Size = new Size(97, 23);
+            label8.TabIndex = 5;
+            label8.Text = "Task Name";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold);
+            label7.Location = new Point(4, 8);
+            label7.Name = "label7";
+            label7.Size = new Size(20, 23);
+            label7.TabIndex = 4;
+            label7.Text = "#";
             // 
             // TaskForm1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(777, 397);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(827, 454);
+            Controls.Add(panel1);
+            Controls.Add(label6);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Name = "TaskForm1";
-            Text = "TaskForm1";
+            Text = "EST Desktop";
             Load += TaskForm1_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tbMaxTime).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbMinTime).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbEst).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -254,14 +360,22 @@
         private Label label3;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btAddTask;
-        private TextBox tbEst;
-        private TextBox tbMaxTime;
+        private NumericUpDown tbEst;
+        private NumericUpDown tbMaxTime;
         private Label label5;
-        private TextBox tbMinTime;
+        private NumericUpDown tbMinTime;
         private Label label4;
         private Label lbOp;
         private Label lbM;
         private Label lbEst;
         private Label lbMin;
+        private Label label6;
+        private Panel panel1;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private Label label8;
+        private Label label7;
     }
 }

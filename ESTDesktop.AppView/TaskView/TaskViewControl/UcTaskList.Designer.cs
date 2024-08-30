@@ -29,35 +29,38 @@
         private void InitializeComponent()
         {
             lbNo = new Label();
-            tbTaskName = new TextBox();
+            tbTaskName = new Label();
             tbEst = new TextBox();
             btDel = new Button();
             tbMinTime = new TextBox();
             tbMaxTime = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // lbNo
             // 
             lbNo.AutoSize = true;
+            lbNo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbNo.Location = new Point(7, 8);
             lbNo.Name = "lbNo";
-            lbNo.Size = new Size(13, 15);
+            lbNo.Size = new Size(14, 15);
             lbNo.TabIndex = 0;
             lbNo.Text = "1";
             lbNo.Click += label1_Click;
             // 
             // tbTaskName
             // 
-            tbTaskName.Location = new Point(28, 5);
+            tbTaskName.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tbTaskName.Location = new Point(36, 5);
             tbTaskName.Name = "tbTaskName";
-            tbTaskName.Size = new Size(141, 23);
+            tbTaskName.Size = new Size(159, 23);
             tbTaskName.TabIndex = 1;
             // 
             // tbEst
             // 
-            tbEst.Location = new Point(217, 5);
+            tbEst.Location = new Point(246, 6);
             tbEst.Name = "tbEst";
-            tbEst.Size = new Size(37, 23);
+            tbEst.Size = new Size(30, 23);
             tbEst.TabIndex = 2;
             // 
             // btDel
@@ -67,8 +70,8 @@
             btDel.BackgroundImageLayout = ImageLayout.None;
             btDel.FlatStyle = FlatStyle.Flat;
             btDel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btDel.ForeColor = Color.Azure;
-            btDel.Location = new Point(298, 4);
+            btDel.ForeColor = Color.AliceBlue;
+            btDel.Location = new Point(357, 5);
             btDel.Name = "btDel";
             btDel.Size = new Size(28, 27);
             btDel.TabIndex = 3;
@@ -78,22 +81,37 @@
             // 
             // tbMinTime
             // 
-            tbMinTime.Location = new Point(175, 5);
+            tbMinTime.Location = new Point(205, 6);
             tbMinTime.Name = "tbMinTime";
-            tbMinTime.Size = new Size(36, 23);
+            tbMinTime.Size = new Size(30, 23);
             tbMinTime.TabIndex = 4;
             // 
             // tbMaxTime
             // 
-            tbMaxTime.Location = new Point(260, 5);
+            tbMaxTime.Location = new Point(286, 6);
             tbMaxTime.Name = "tbMaxTime";
-            tbMaxTime.Size = new Size(31, 23);
+            tbMaxTime.Size = new Size(30, 23);
             tbMaxTime.TabIndex = 5;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 13F, FontStyle.Italic);
+            button1.ForeColor = Color.AliceBlue;
+            button1.Location = new Point(323, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(28, 27);
+            button1.TabIndex = 6;
+            button1.Text = "i";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // UcTaskList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button1);
             Controls.Add(tbMaxTime);
             Controls.Add(tbMinTime);
             Controls.Add(btDel);
@@ -101,7 +119,7 @@
             Controls.Add(tbTaskName);
             Controls.Add(lbNo);
             Name = "UcTaskList";
-            Size = new Size(331, 35);
+            Size = new Size(388, 35);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -109,10 +127,11 @@
         #endregion
 
         private Label lbNo;
-        private TextBox tbTaskName;
+        private Label tbTaskName;
         private TextBox tbEst;
         private Button btDel;
         private TextBox tbMinTime;
         private TextBox tbMaxTime;
+        private Button button1;
     }
 }

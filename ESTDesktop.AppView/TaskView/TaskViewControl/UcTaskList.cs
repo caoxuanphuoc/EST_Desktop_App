@@ -32,9 +32,16 @@ namespace ESTDesktop.AppView.TaskView.TaskViewControl
 
         // Khai báo sự kiện để thông báo việc xóa
         public event EventHandler RemoveControlClicked;
+
+        public event EventHandler EditControlClicked;
         private void btDel_Click(object sender, EventArgs e)
         {
             RemoveControlClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EditControlClicked?.Invoke(this, EventArgs.Empty);
         }
 
         public int No
@@ -43,7 +50,7 @@ namespace ESTDesktop.AppView.TaskView.TaskViewControl
             set { _no = value; lbNo.Text = value.ToString(); }
         }
 
-       
+
 
         public string TaskName
         {

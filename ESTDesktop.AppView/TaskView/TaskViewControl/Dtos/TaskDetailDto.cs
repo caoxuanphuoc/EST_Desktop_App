@@ -10,6 +10,7 @@ namespace ESTDesktop.AppView.TaskView.TaskViewControl.Dtos
     {
         public int No { get; set; }
         public string TaskName { get; set; }
+        public string Description { get; set; }
         public float MinTime { get; set; }
         public float Est { get; set; }
         public float MaxTime { get; set; }
