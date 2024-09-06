@@ -87,14 +87,25 @@ namespace ESTDesktop.AppView.TaskView
             UcTaskList userControl = sender as UcTaskList;
             if (userControl != null)
             {
+                float subMin = lsTask[userControl.No - 1].MinTime, 
+                        subOp = lsTask[userControl.No - 1].Est, 
+                        subMax = lsTask[userControl.No - 1].MaxTime;
+                float sum = subMin + 4 * subOp + subMax;
+                float est = sum / 6f;
+                decimal res = Math.Round((decimal)est, 2);
+
+
                 tbTaskName.Text = lsTask[userControl.No - 1].TaskName;
-                tbMinTime.Text = lsTask[userControl.No - 1].MinTime.ToString();
-                tbMaxTime.Text = lsTask[userControl.No - 1].MaxTime.ToString();
-                tbEst.Text = lsTask[userControl.No - 1].Est.ToString();
+                tbMinTime.Text = subMin.ToString();
+                tbMaxTime.Text = subMax.ToString();
+                tbEst.Text = subOp.ToString();
                 tbTaskName.Text = lsTask[userControl.No - 1].TaskName;
                 rtbDescripttion.Text = lsTask[userControl.No - 1].Description;
 
                 IdEdit = userControl.No - 1;
+
+                lbDetailHour.Text = $"Total Hour: {Decimal.Floor(res / 60)}:{Math.Round(res, 0) % 60}";
+
             }
         }
         private void btAddTask_Click(object sender, EventArgs e)
@@ -112,6 +123,10 @@ namespace ESTDesktop.AppView.TaskView
             TotalOP += string.IsNullOrEmpty(tbEst.Text) ? 0 : float.Parse(tbEst.Text);
             if (IdEdit != -1)
             {
+                TotalMin -= lsTask[IdEdit].MinTime;
+                TotalMax -= lsTask[IdEdit].MaxTime;
+                TotalOP -= lsTask[IdEdit].Est;
+
                 lsTask[IdEdit].TaskName = tbTaskName.Text;
                 lsTask[IdEdit].Description = rtbDescripttion.Text;
                 lsTask[IdEdit].Est = string.IsNullOrEmpty(tbEst.Text) ? 0 : float.Parse(tbEst.Text);
@@ -159,7 +174,8 @@ namespace ESTDesktop.AppView.TaskView
             lbMin.Text = $"Total Min Time: {TotalMin}";
             lbM.Text = $"Total Max Time: {TotalMax}";
             lbOp.Text = $"Total Optimistic Time: {TotalOP}";
-
+            
+            lbTotalHour.Text = $"Total Hour: {Decimal.Floor(res/60)}:{Math.Round(res,0)% 60}";
             lbEst.Text = $"EST: {res}";
         }
         private void rtbDescripttion_TextChanged(object sender, EventArgs e)

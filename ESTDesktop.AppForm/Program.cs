@@ -25,7 +25,7 @@ namespace ESTDesktop.AppForm
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
             // Resolve the main form and run the application
-            var mainForm = ServiceProvider.GetRequiredService<LayoutForm>();
+            var mainForm = ServiceProvider.GetRequiredService<TaskForm1>();
             Application.Run(mainForm);
 
 

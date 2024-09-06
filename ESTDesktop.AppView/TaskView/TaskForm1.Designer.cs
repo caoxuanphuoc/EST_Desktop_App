@@ -41,6 +41,8 @@
             tbTaskName = new TextBox();
             rtbDescripttion = new RichTextBox();
             panel3 = new Panel();
+            lbDetailHour = new Label();
+            lbTotalHour = new Label();
             lbOp = new Label();
             lbM = new Label();
             lbEst = new Label();
@@ -181,6 +183,8 @@
             // panel3
             // 
             panel3.BackColor = Color.MistyRose;
+            panel3.Controls.Add(lbDetailHour);
+            panel3.Controls.Add(lbTotalHour);
             panel3.Controls.Add(lbOp);
             panel3.Controls.Add(lbM);
             panel3.Controls.Add(lbEst);
@@ -189,6 +193,28 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(391, 119);
             panel3.TabIndex = 2;
+            // 
+            // lbDetailHour
+            // 
+            lbDetailHour.AutoSize = true;
+            lbDetailHour.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lbDetailHour.ForeColor = Color.ForestGreen;
+            lbDetailHour.Location = new Point(184, 83);
+            lbDetailHour.Name = "lbDetailHour";
+            lbDetailHour.Size = new Size(82, 15);
+            lbDetailHour.TabIndex = 5;
+            lbDetailHour.Text = "Detail hour: 0";
+            // 
+            // lbTotalHour
+            // 
+            lbTotalHour.AutoSize = true;
+            lbTotalHour.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lbTotalHour.ForeColor = Color.ForestGreen;
+            lbTotalHour.Location = new Point(184, 51);
+            lbTotalHour.Name = "lbTotalHour";
+            lbTotalHour.Size = new Size(76, 15);
+            lbTotalHour.TabIndex = 4;
+            lbTotalHour.Text = "Total hour: 0";
             // 
             // lbOp
             // 
@@ -217,7 +243,7 @@
             lbEst.AutoSize = true;
             lbEst.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             lbEst.ForeColor = Color.OrangeRed;
-            lbEst.Location = new Point(210, 46);
+            lbEst.Location = new Point(184, 9);
             lbEst.Name = "lbEst";
             lbEst.Size = new Size(73, 36);
             lbEst.TabIndex = 1;
@@ -337,7 +363,7 @@
             Controls.Add(label6);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "TaskForm1";
             Text = "EST Desktop";
             Load += TaskForm1_Load;
@@ -381,5 +407,7 @@
         private Label label9;
         private Label label8;
         private Label label7;
+        private Label lbDetailHour;
+        private Label lbTotalHour;
     }
 }
