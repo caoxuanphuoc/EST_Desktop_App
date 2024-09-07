@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcTaskList));
             lbNo = new Label();
             tbTaskName = new Label();
             tbEst = new TextBox();
             btDel = new Button();
             tbMinTime = new TextBox();
             tbMaxTime = new TextBox();
-            button1 = new Button();
+            btEdit = new Button();
+            tbTimer = new TextBox();
+            btPlay = new Button();
+            btPause = new Button();
             SuspendLayout();
             // 
             // lbNo
@@ -53,65 +57,113 @@
             tbTaskName.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tbTaskName.Location = new Point(36, 5);
             tbTaskName.Name = "tbTaskName";
-            tbTaskName.Size = new Size(159, 23);
+            tbTaskName.Size = new Size(225, 23);
             tbTaskName.TabIndex = 1;
             // 
             // tbEst
             // 
-            tbEst.Location = new Point(246, 6);
+            tbEst.Font = new Font("Microsoft Sans Serif", 9F);
+            tbEst.Location = new Point(308, 6);
             tbEst.Name = "tbEst";
-            tbEst.Size = new Size(30, 23);
+            tbEst.ReadOnly = true;
+            tbEst.Size = new Size(30, 21);
             tbEst.TabIndex = 2;
+            tbEst.TextAlign = HorizontalAlignment.Center;
             // 
             // btDel
             // 
             btDel.AutoSize = true;
-            btDel.BackColor = Color.Red;
-            btDel.BackgroundImageLayout = ImageLayout.None;
-            btDel.FlatStyle = FlatStyle.Flat;
+            btDel.BackColor = Color.SaddleBrown;
+            btDel.BackgroundImage = Properties.Resources.delete;
+            btDel.BackgroundImageLayout = ImageLayout.Stretch;
             btDel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btDel.ForeColor = Color.AliceBlue;
-            btDel.Location = new Point(357, 5);
+            btDel.Location = new Point(606, 5);
             btDel.Name = "btDel";
             btDel.Size = new Size(28, 27);
             btDel.TabIndex = 3;
-            btDel.Text = "x";
             btDel.UseVisualStyleBackColor = false;
             btDel.Click += btDel_Click;
             // 
             // tbMinTime
             // 
-            tbMinTime.Location = new Point(205, 6);
+            tbMinTime.Font = new Font("Microsoft Sans Serif", 9F);
+            tbMinTime.Location = new Point(267, 6);
             tbMinTime.Name = "tbMinTime";
-            tbMinTime.Size = new Size(30, 23);
+            tbMinTime.ReadOnly = true;
+            tbMinTime.Size = new Size(30, 21);
             tbMinTime.TabIndex = 4;
+            tbMinTime.TextAlign = HorizontalAlignment.Center;
             // 
             // tbMaxTime
             // 
-            tbMaxTime.Location = new Point(286, 6);
+            tbMaxTime.Font = new Font("Microsoft Sans Serif", 9F);
+            tbMaxTime.Location = new Point(348, 6);
             tbMaxTime.Name = "tbMaxTime";
-            tbMaxTime.Size = new Size(30, 23);
+            tbMaxTime.ReadOnly = true;
+            tbMaxTime.Size = new Size(30, 21);
             tbMaxTime.TabIndex = 5;
+            tbMaxTime.TextAlign = HorizontalAlignment.Center;
             // 
-            // button1
+            // btEdit
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 13F, FontStyle.Italic);
-            button1.ForeColor = Color.AliceBlue;
-            button1.Location = new Point(323, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(28, 27);
-            button1.TabIndex = 6;
-            button1.Text = "i";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btEdit.BackColor = Color.Peru;
+            btEdit.BackgroundImage = Properties.Resources.editing;
+            btEdit.BackgroundImageLayout = ImageLayout.Stretch;
+            btEdit.Font = new Font("Segoe UI", 13F, FontStyle.Italic);
+            btEdit.Image = (Image)resources.GetObject("btEdit.Image");
+            btEdit.Location = new Point(572, 4);
+            btEdit.Name = "btEdit";
+            btEdit.Size = new Size(28, 27);
+            btEdit.TabIndex = 6;
+            btEdit.UseVisualStyleBackColor = false;
+            btEdit.Click += button1_Click;
+            // 
+            // tbTimer
+            // 
+            tbTimer.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbTimer.Location = new Point(391, 6);
+            tbTimer.Name = "tbTimer";
+            tbTimer.ReadOnly = true;
+            tbTimer.Size = new Size(100, 24);
+            tbTimer.TabIndex = 7;
+            tbTimer.Text = "00:00:00";
+            tbTimer.TextAlign = HorizontalAlignment.Center;
+            // 
+            // btPlay
+            // 
+            btPlay.BackColor = Color.DarkGreen;
+            btPlay.BackgroundImage = Properties.Resources.play_button;
+            btPlay.BackgroundImageLayout = ImageLayout.Stretch;
+            btPlay.Location = new Point(498, 5);
+            btPlay.Name = "btPlay";
+            btPlay.Size = new Size(27, 27);
+            btPlay.TabIndex = 8;
+            btPlay.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btPlay.UseVisualStyleBackColor = false;
+            btPlay.Click += btPlay_Click;
+            // 
+            // btPause
+            // 
+            btPause.BackColor = Color.ForestGreen;
+            btPause.BackgroundImage = Properties.Resources.pause_v2;
+            btPause.BackgroundImageLayout = ImageLayout.Stretch;
+            btPause.Location = new Point(530, 5);
+            btPause.Name = "btPause";
+            btPause.Size = new Size(27, 27);
+            btPause.TabIndex = 9;
+            btPause.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btPause.UseVisualStyleBackColor = false;
+            btPause.Click += btPause_Click;
             // 
             // UcTaskList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
+            Controls.Add(btPause);
+            Controls.Add(btPlay);
+            Controls.Add(tbTimer);
+            Controls.Add(btEdit);
             Controls.Add(tbMaxTime);
             Controls.Add(tbMinTime);
             Controls.Add(btDel);
@@ -119,7 +171,8 @@
             Controls.Add(tbTaskName);
             Controls.Add(lbNo);
             Name = "UcTaskList";
-            Size = new Size(388, 35);
+            Size = new Size(636, 35);
+            Load += UcTaskList_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -132,6 +185,9 @@
         private Button btDel;
         private TextBox tbMinTime;
         private TextBox tbMaxTime;
-        private Button button1;
+        private Button btEdit;
+        private TextBox tbTimer;
+        private Button btPlay;
+        private Button btPause;
     }
 }
