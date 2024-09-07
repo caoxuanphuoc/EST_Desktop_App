@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -31,7 +32,6 @@ namespace ESTDesktop.AppView.TaskView
 
         private int IdEdit { get; set; } = -1;
 
-
         private void TaskForm1_Load(object sender, EventArgs e)
         {
             ShowListTask();
@@ -39,21 +39,32 @@ namespace ESTDesktop.AppView.TaskView
         private void ShowListTask()
         {
             int length = lsTask.Count();
-            UcTaskList[] ListTaskUC = new UcTaskList[length];
             flowLayoutPanel1.Controls.Clear();
+            UcTaskList[] ListTaskUC = new UcTaskList[length];
 
             for (int i = 0; i != -1 && i < length; i++)
             {
                 ListTaskUC[i] = new UcTaskList();
                 // ListTaskUC[i].Location = new Point(0, i * 50);
                 ListTaskUC[i].No = lsTask[i].No;
-                ListTaskUC[i].TaskName = lsTask[i].TaskName;
+                // take 30 characters of task name
+                if (lsTask[i].TaskName.Length > 30)
+                {
+                    ListTaskUC[i].TaskName = lsTask[i].TaskName.Substring(0, 28) + "...";
+                }
+                else
+                { ListTaskUC[i].TaskName = lsTask[i].TaskName; }
                 ListTaskUC[i].Est = lsTask[i].Est;
                 ListTaskUC[i].MinTime = lsTask[i].MinTime;
                 ListTaskUC[i].MaxTime = lsTask[i].MaxTime;
 
+                // storage time work before reset
+                ListTaskUC[i].TimeWork = lsTask[i].TimeWork;
+
                 ListTaskUC[i].RemoveControlClicked += UserControl_RemoveControlClicked;
                 ListTaskUC[i].EditControlClicked += UserControl_EditControlClicked;
+                ListTaskUC[i].SaveTimeControlButon += UserControl_SaveTimeControlClicked;
+                
                 flowLayoutPanel1.Controls.Add(ListTaskUC[i]);
             }
         }
@@ -97,12 +108,22 @@ namespace ESTDesktop.AppView.TaskView
                 IdEdit = userControl.No - 1;
             }
         }
+
+        
+
+        private void UserControl_SaveTimeControlClicked(object sender, EventArgs e)
+        {
+            // Khi sự kiện được kích hoạt, xóa UserControl khỏi FlowLayoutPanel và danh sách
+            UcTaskList userControlTaskElement = sender as UcTaskList;
+
+            lsTask[userControlTaskElement.No - 1].TimeWork = userControlTaskElement.TimeWork;
+        }
         private void btAddTask_Click(object sender, EventArgs e)
         {
             string taskName = tbTaskName.Text;
             string description = rtbDescripttion.Text;
 
-            if ( string.IsNullOrEmpty(taskName) && string.IsNullOrEmpty(description))
+            if (string.IsNullOrEmpty(taskName) && string.IsNullOrEmpty(description))
             {
                 return;
             }
@@ -126,10 +147,11 @@ namespace ESTDesktop.AppView.TaskView
                 {
                     No = lsTask.Count + 1,
                     TaskName = tbTaskName.Text,
-                    Description= rtbDescripttion.Text,
+                    Description = rtbDescripttion.Text,
                     Est = string.IsNullOrEmpty(tbEst.Text) ? 0 : float.Parse(tbEst.Text),
                     MaxTime = string.IsNullOrEmpty(tbMaxTime.Text) ? 0 : float.Parse(tbMaxTime.Text),
                     MinTime = string.IsNullOrEmpty(tbMinTime.Text) ? 0 : float.Parse(tbMinTime.Text),
+                    TimeWork = new TimeSpan(0, 0, 0, 0)
                 };
                 lsTask.Add(TaskDetailDto);
             }
@@ -168,6 +190,11 @@ namespace ESTDesktop.AppView.TaskView
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }
