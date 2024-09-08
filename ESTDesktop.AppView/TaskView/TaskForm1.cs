@@ -23,8 +23,8 @@ namespace ESTDesktop.AppView.TaskView
         {
             InitializeComponent();
             lsTask = new List<TaskDetailDto>();
-        }
-
+          }
+        
         public List<TaskDetailDto> lsTask { get; set; }
         public float TotalMin { get; set; }
         public float TotalOP { get; set; }
@@ -114,9 +114,13 @@ namespace ESTDesktop.AppView.TaskView
                 rtbDescripttion.Text = lsTask[userControl.No - 1].Description;
 
                 IdEdit = userControl.No - 1;
+                int detailHour = (int)(Decimal.Floor(res / 60));
+                int detailMinute = (int)(Math.Round(res, 0) % 60);
 
-                lbDetailHour.Text = $"Total Hour: {Decimal.Floor(res / 60)}:{Math.Round(res, 0) % 60}";
-
+                lbDetailHour.Text = $"Detail Hour: {detailHour}:{detailMinute}";
+                lbFreeTime.Text = $"Free Time: {detailHour - userControl.TimeWork.Hours}:{detailMinute - userControl.TimeWork.Minutes}";
+                double timeOver = userControl.TimeWork.TotalMinutes /(double) res * 100;
+                lbPerCur.Text = $"Percent Cur: {(Math.Round(timeOver, 1))}%";
             }
         }
 
@@ -193,9 +197,6 @@ namespace ESTDesktop.AppView.TaskView
                   int lastInd = Math.Min(index + 2, resString.Length );
                   resString = resString.Substring(0, lastInd);
               }*/
-            lbMin.Text = $"Total Min Time: {TotalMin}";
-            lbM.Text = $"Total Max Time: {TotalMax}";
-            lbOp.Text = $"Total Optimistic Time: {TotalOP}";
             
             lbTotalHour.Text = $"Total Hour: {Decimal.Floor(res/60)}:{Math.Round(res,0)% 60}";
             lbEst.Text = $"EST: {res}";
