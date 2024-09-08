@@ -29,7 +29,7 @@ namespace ESTDesktop.AppView.TaskView.TaskViewControl
         private float _minTime;
         private float _maxTime;
 
-        private System.Timers.Timer _timeCount;
+        public System.Timers.Timer _timeCount;
         private int h, m, s, ms;
 
 
@@ -41,6 +41,8 @@ namespace ESTDesktop.AppView.TaskView.TaskViewControl
         public event EventHandler EditControlClicked;
 
         public event EventHandler SaveTimeControlButon;
+
+        public event EventHandler PlayTimeControlButon;
         private void btDel_Click(object sender, EventArgs e)
         {
             RemoveControlClicked?.Invoke(this, EventArgs.Empty);
@@ -54,8 +56,8 @@ namespace ESTDesktop.AppView.TaskView.TaskViewControl
         private void btPlay_Click(object sender, EventArgs e)
         {
 
-
-            _timeCount.Start();
+            PlayTimeControlButon?.Invoke(this, EventArgs.Empty);
+            //_timeCount.Start();
         }
 
         private void OnTimeEvent(object? sender, ElapsedEventArgs e)

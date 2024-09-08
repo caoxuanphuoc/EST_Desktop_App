@@ -8,6 +8,9 @@
     <Compile Update="Layout\LayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TaskView\MinimizeForm\FrmMinimizeClook.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TaskView\TaskForm1.cs">
       <SubType>Form</SubType>
     </Compile>

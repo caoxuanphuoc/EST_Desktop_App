@@ -15,5 +15,7 @@ namespace ESTDesktop.AppView.TaskView.TaskViewControl.Dtos
         public float Est { get; set; }
         public float MaxTime { get; set; }
         public TimeSpan TimeWork { get; set; }
+
+        public bool IsRunning { get; set; }
     }
 }

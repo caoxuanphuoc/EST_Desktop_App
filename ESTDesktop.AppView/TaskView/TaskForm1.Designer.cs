@@ -41,6 +41,8 @@
             tbTaskName = new TextBox();
             rtbDescripttion = new RichTextBox();
             panel3 = new Panel();
+            lbFreeTime = new Label();
+            lbPerCur = new Label();
             lbDetailHour = new Label();
             lbTotalHour = new Label();
             lbEst = new Label();
@@ -54,8 +56,6 @@
             label10 = new Label();
             label8 = new Label();
             label7 = new Label();
-            lbPerCur = new Label();
-            lbFreeTime = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbMaxTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbMinTime).BeginInit();
@@ -178,7 +178,6 @@
             rtbDescripttion.Size = new Size(317, 107);
             rtbDescripttion.TabIndex = 1;
             rtbDescripttion.Text = "";
-            rtbDescripttion.TextChanged += rtbDescripttion_TextChanged;
             // 
             // panel3
             // 
@@ -192,6 +191,28 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(391, 128);
             panel3.TabIndex = 2;
+            // 
+            // lbFreeTime
+            // 
+            lbFreeTime.AutoSize = true;
+            lbFreeTime.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lbFreeTime.ForeColor = Color.ForestGreen;
+            lbFreeTime.Location = new Point(279, 18);
+            lbFreeTime.Name = "lbFreeTime";
+            lbFreeTime.Size = new Size(66, 15);
+            lbFreeTime.TabIndex = 7;
+            lbFreeTime.Text = "Free Time:";
+            // 
+            // lbPerCur
+            // 
+            lbPerCur.AutoSize = true;
+            lbPerCur.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lbPerCur.ForeColor = Color.ForestGreen;
+            lbPerCur.Location = new Point(279, 39);
+            lbPerCur.Name = "lbPerCur";
+            lbPerCur.Size = new Size(96, 15);
+            lbPerCur.TabIndex = 6;
+            lbPerCur.Text = "Percent Cur: 0%";
             // 
             // lbDetailHour
             // 
@@ -290,7 +311,6 @@
             label12.Size = new Size(26, 23);
             label12.TabIndex = 9;
             label12.Text = "M";
-            label12.Click += label12_Click;
             // 
             // label11
             // 
@@ -332,28 +352,6 @@
             label7.TabIndex = 4;
             label7.Text = "#";
             // 
-            // lbPerCur
-            // 
-            lbPerCur.AutoSize = true;
-            lbPerCur.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lbPerCur.ForeColor = Color.ForestGreen;
-            lbPerCur.Location = new Point(279, 39);
-            lbPerCur.Name = "lbPerCur";
-            lbPerCur.Size = new Size(96, 15);
-            lbPerCur.TabIndex = 6;
-            lbPerCur.Text = "Percent Cur: 0%";
-            // 
-            // lbFreeTime
-            // 
-            lbFreeTime.AutoSize = true;
-            lbFreeTime.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lbFreeTime.ForeColor = Color.ForestGreen;
-            lbFreeTime.Location = new Point(279, 18);
-            lbFreeTime.Name = "lbFreeTime";
-            lbFreeTime.Size = new Size(66, 15);
-            lbFreeTime.TabIndex = 7;
-            lbFreeTime.Text = "Free Time:";
-            // 
             // TaskForm1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -367,6 +365,7 @@
             Name = "TaskForm1";
             Text = "EST Desktop";
             Load += TaskForm1_Load;
+            Resize += TaskForm1_Resize_1;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tbMaxTime).EndInit();
