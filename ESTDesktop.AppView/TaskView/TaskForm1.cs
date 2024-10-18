@@ -7,7 +7,7 @@ namespace ESTDesktop.AppView.TaskView
 {
     public partial class TaskForm1 : Form
     {
-        
+
         public TaskForm1()
         {
             InitializeComponent();
@@ -125,32 +125,32 @@ namespace ESTDesktop.AppView.TaskView
         #region CURD LIST UC UcTaskList
         private void AddControl_v2(TaskDetailDto data)
         {
-                UcTaskList elementTaskList = new UcTaskList();
-                // elementTaskList.Location = new Point(0, i * 50);
-                elementTaskList.No = data.No;
-                // take 30 characters of task name
-                if (data.TaskName.Length > 30)
-                {
-                    elementTaskList.TaskName = data.TaskName.Substring(0, 28) + "...";
-                }
-                else
-                { elementTaskList.TaskName = data.TaskName; }
-                elementTaskList.Est = data.Est;
-                elementTaskList.MinTime = data.MinTime;
-                elementTaskList.MaxTime = data.MaxTime;
+            UcTaskList elementTaskList = new UcTaskList();
+            // elementTaskList.Location = new Point(0, i * 50);
+            elementTaskList.No = data.No;
+            // take 30 characters of task name
+            if (data.TaskName.Length > 30)
+            {
+                elementTaskList.TaskName = data.TaskName.Substring(0, 28) + "...";
+            }
+            else
+            { elementTaskList.TaskName = data.TaskName; }
+            elementTaskList.Est = data.Est;
+            elementTaskList.MinTime = data.MinTime;
+            elementTaskList.MaxTime = data.MaxTime;
 
-                // storage time work before reset
-                elementTaskList.TimeWork = data.TimeWork;
+            // storage time work before reset
+            elementTaskList.TimeWork = data.TimeWork;
 
-                elementTaskList.RemoveControlClicked += UserControl_RemoveControlClicked;
-                elementTaskList.EditControlClicked += UserControl_EditControlClicked;
-                elementTaskList.SaveTimeControlButon += UserControl_SaveTimeControlClicked;
-                elementTaskList.PlayTimeControlButon +=
-                UserControl_PlayControlClicked;
+            elementTaskList.RemoveControlClicked += UserControl_RemoveControlClicked;
+            elementTaskList.EditControlClicked += UserControl_EditControlClicked;
+            elementTaskList.SaveTimeControlButon += UserControl_SaveTimeControlClicked;
+            elementTaskList.PlayTimeControlButon +=
+            UserControl_PlayControlClicked;
 
-                ListTaskUC_v2.Add(elementTaskList);
+            ListTaskUC_v2.Add(elementTaskList);
         }
-        
+
         private void updateControl_v2(TaskDetailDto data)
         {
             UcTaskList elementTaskList = ListTaskUC_v2[data.No];
@@ -182,9 +182,9 @@ namespace ESTDesktop.AppView.TaskView
             UcTaskList userControl = sender as UcTaskList;
             if (userControl != null)
             {
-                float subMin = lsTask[userControl.No ].MinTime,
-                        subOp = lsTask[userControl.No ].Est,
-                        subMax = lsTask[userControl.No ].MaxTime;
+                float subMin = lsTask[userControl.No].MinTime,
+                        subOp = lsTask[userControl.No].Est,
+                        subMax = lsTask[userControl.No].MaxTime;
                 float sum = subMin + 4 * subOp + subMax;
                 float est = sum / 6f;
                 decimal res = Math.Round((decimal)est, 2);
@@ -235,7 +235,7 @@ namespace ESTDesktop.AppView.TaskView
             lsTask[userControlTaskElement.No].IsRunning = true;
             userControlTaskElement._timeCount.Start();
         }
-        
+
         private void UserControl_SaveTimeControlClicked(object sender, EventArgs e)
         {
             // Khi sự kiện được kích hoạt, xóa UserControl khỏi FlowLayoutPanel và danh sách
@@ -255,7 +255,7 @@ namespace ESTDesktop.AppView.TaskView
         {
             flowLayoutPanel1.Controls.Clear();
             for (int i = 0; i < ListTaskUC_v2.Count; i++)
-            { 
+            {
                 flowLayoutPanel1.Controls.Add(ListTaskUC_v2[i]);
             }
         }
@@ -264,10 +264,30 @@ namespace ESTDesktop.AppView.TaskView
         {
             for (int i = 0; i < lsTask.Count; i++)
             {
-                lsTask[i].No = i ;
+                lsTask[i].No = i;
                 ListTaskUC_v2[i].No = i;
             }
         }
 
+        private void btCopy_Click(object sender, EventArgs e)
+        {
+            string st = tbStartDate.Text;
+            string ed = tbEndDate.Text;
+
+            if (string.IsNullOrEmpty(st) || string.IsNullOrEmpty(ed))
+            {
+                return;
+            }
+
+            DateTime startDate = DateTime.Parse(st);
+            DateTime endDate = DateTime.Parse(ed);
+            // interval time
+            int interval =( endDate - startDate ).Days;
+
+            lbResInterval.Text = $"{interval} days";
+
+            // copy interval to clipborad 
+            Clipboard.SetText(interval.ToString());
+        }
     }
 }

@@ -56,12 +56,19 @@
             label10 = new Label();
             label8 = new Label();
             label7 = new Label();
+            panel4 = new Panel();
+            lbResInterval = new Label();
+            btCopy = new Button();
+            label14 = new Label();
+            tbEndDate = new TextBox();
+            tbStartDate = new TextBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbMaxTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbMinTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbEst).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -352,11 +359,65 @@
             label7.TabIndex = 4;
             label7.Text = "#";
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(lbResInterval);
+            panel4.Controls.Add(btCopy);
+            panel4.Controls.Add(label14);
+            panel4.Controls.Add(tbEndDate);
+            panel4.Controls.Add(tbStartDate);
+            panel4.Location = new Point(13, 469);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1065, 112);
+            panel4.TabIndex = 6;
+            // 
+            // lbResInterval
+            // 
+            lbResInterval.AutoSize = true;
+            lbResInterval.Location = new Point(6, 90);
+            lbResInterval.Name = "lbResInterval";
+            lbResInterval.Size = new Size(0, 15);
+            lbResInterval.TabIndex = 4;
+            // 
+            // btCopy
+            // 
+            btCopy.Location = new Point(60, 86);
+            btCopy.Name = "btCopy";
+            btCopy.Size = new Size(75, 23);
+            btCopy.TabIndex = 3;
+            btCopy.Text = "Copy";
+            btCopy.UseVisualStyleBackColor = true;
+            btCopy.Click += btCopy_Click;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(18, 5);
+            label14.Name = "label14";
+            label14.Size = new Size(69, 15);
+            label14.TabIndex = 2;
+            label14.Text = "Date Inerval";
+            // 
+            // tbEndDate
+            // 
+            tbEndDate.Location = new Point(5, 55);
+            tbEndDate.Name = "tbEndDate";
+            tbEndDate.Size = new Size(130, 23);
+            tbEndDate.TabIndex = 1;
+            // 
+            // tbStartDate
+            // 
+            tbStartDate.Location = new Point(5, 26);
+            tbStartDate.Name = "tbStartDate";
+            tbStartDate.Size = new Size(130, 23);
+            tbStartDate.TabIndex = 0;
+            // 
             // TaskForm1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1092, 454);
+            ClientSize = new Size(1092, 593);
+            Controls.Add(panel4);
             Controls.Add(panel1);
             Controls.Add(label6);
             Controls.Add(panel3);
@@ -375,6 +436,8 @@
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -410,5 +473,11 @@
         private Label label13;
         private Label lbFreeTime;
         private Label lbPerCur;
+        private Panel panel4;
+        private Button btCopy;
+        private Label label14;
+        private TextBox tbEndDate;
+        private TextBox tbStartDate;
+        private Label lbResInterval;
     }
 }
