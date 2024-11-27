@@ -282,12 +282,31 @@ namespace ESTDesktop.AppView.TaskView
             DateTime startDate = DateTime.Parse(st);
             DateTime endDate = DateTime.Parse(ed);
             // interval time
-            int interval =( endDate - startDate ).Days;
+            int interval = (endDate - startDate).Days;
 
             lbResInterval.Text = $"{interval} days";
 
             // copy interval to clipborad 
             Clipboard.SetText(interval.ToString());
+        }
+
+        private void btGetQuickLink_Click(object sender, EventArgs e)
+        {
+            string tag = tbTagLink.Text;
+            string link = tbLinkFormat.Text;
+
+            if (string.IsNullOrEmpty(tag) || string.IsNullOrEmpty(link))
+            {
+                return;
+            }
+
+            string linkFormat = $"[{tag}]({link})";
+
+            Clipboard.SetText(linkFormat);
+            // wait 500 ms and reset color
+            tbTagLink.Text = "";
+            tbLinkFormat.Text = "";
+            // copy interval to clipborad 
         }
     }
 }
