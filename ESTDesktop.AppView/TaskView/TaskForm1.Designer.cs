@@ -62,6 +62,10 @@
             label14 = new Label();
             tbEndDate = new TextBox();
             tbStartDate = new TextBox();
+            tbTagLink = new TextBox();
+            tbLinkFormat = new TextBox();
+            label15 = new Label();
+            btGetQuickLink = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbMaxTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbMinTime).BeginInit();
@@ -361,6 +365,10 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(btGetQuickLink);
+            panel4.Controls.Add(label15);
+            panel4.Controls.Add(tbLinkFormat);
+            panel4.Controls.Add(tbTagLink);
             panel4.Controls.Add(lbResInterval);
             panel4.Controls.Add(btCopy);
             panel4.Controls.Add(label14);
@@ -411,6 +419,41 @@
             tbStartDate.Name = "tbStartDate";
             tbStartDate.Size = new Size(130, 23);
             tbStartDate.TabIndex = 0;
+            // 
+            // tbTagLink
+            // 
+            tbTagLink.Location = new Point(170, 26);
+            tbTagLink.Name = "tbTagLink";
+            tbTagLink.PlaceholderText = "Tag";
+            tbTagLink.Size = new Size(119, 23);
+            tbTagLink.TabIndex = 5;
+            // 
+            // tbLinkFormat
+            // 
+            tbLinkFormat.Location = new Point(170, 55);
+            tbLinkFormat.Name = "tbLinkFormat";
+            tbLinkFormat.PlaceholderText = "link";
+            tbLinkFormat.Size = new Size(119, 23);
+            tbLinkFormat.TabIndex = 6;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(168, 6);
+            label15.Name = "label15";
+            label15.Size = new Size(63, 15);
+            label15.TabIndex = 7;
+            label15.Text = "Quick Link";
+            // 
+            // btGetQuickLink
+            // 
+            btGetQuickLink.Location = new Point(214, 86);
+            btGetQuickLink.Name = "btGetQuickLink";
+            btGetQuickLink.Size = new Size(75, 23);
+            btGetQuickLink.TabIndex = 8;
+            btGetQuickLink.Text = "Get";
+            btGetQuickLink.UseVisualStyleBackColor = true;
+            btGetQuickLink.Click += btGetQuickLink_Click;
             // 
             // TaskForm1
             // 
@@ -479,5 +522,9 @@
         private TextBox tbEndDate;
         private TextBox tbStartDate;
         private Label lbResInterval;
+        private Button btGetQuickLink;
+        private Label label15;
+        private TextBox tbLinkFormat;
+        private TextBox tbTagLink;
     }
 }
